@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  const Home(String text, {super.key});
+  Home(this.text, {super.key});
+  String text;
   @override
   State<Home> createState() => _HomeState();
 }
@@ -12,47 +13,29 @@ class _HomeState extends State<Home> {
     List<String> items = List<String>.generate(100, (i) => 'Item $i');
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 157, 241, 227),
+      backgroundColor: const Color.fromARGB(255, 157, 241, 227),
       appBar: AppBar(
-        title: Text("Home "),
+        title: const Text("Home "),
         backgroundColor: Colors.teal[900],
-        // titleTextStyle: TextStyle(
-        //   color: Colors.teal[900],
-        //   fontWeight: FontWeight.bold,
-        //   fontSize: 24.0,
-        // ),
       ),
-
-      // body: ListView.builder(
-      //   itemCount: items.length,
-      //   prototypeItem: ListTile(
-      //     title: Text(items.first),
-      //   ),
-      //   itemBuilder: (context, index) {
-      //     return ListTile(
-      //       title: Text(items[index]),
-      //     );
-      //   },
-      // ),
-
       body: Center(
         child: Column(
           children: [
             Image.network(
                 'https://media.istockphoto.com/id/1288525678/vector/futuristic-blue-cyan-and-black-abstract-gaming-banner-design-with-metal-technology-concept.jpg?s=1024x1024&w=is&k=20&c=MxtLHp1kCeAgLwUofCOHgFbltcpryqWVHSxd6kScNi0='),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
-              "Welcome User.....!",
-              style: TextStyle(
+              "Welcome ${widget.text}!",
+              style: const TextStyle(
                 fontFamily: 'IndieFlower',
                 letterSpacing: 4,
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Label("Horizontal List :"),
@@ -65,7 +48,7 @@ class _HomeState extends State<Home> {
                 child: _list(),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Label("Vartical List :"),
@@ -193,7 +176,7 @@ Widget Card(String url, String name) => Container(
               height: 150,
               width: 150,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(25),
                 ),
                 image: DecorationImage(
