@@ -1,5 +1,12 @@
 import "package:app_001/pages/home.dart";
 import "package:flutter/material.dart";
+import 'dart:io' show Platform;
+import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
+import 'package:app_001/pages/login.dart';
+import 'package:app_001/pages/home.dart';
+import 'package:app_001/pages/details.dart';
+import 'package:app_001/pages/cardd.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -14,13 +21,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 157, 241, 227),
-      // appBar: AppBar(
-      //   title: Text(
-      //     "Items",
-      //   ),
-      //   backgroundColor: Colors.cyan[900],
-      //   centerTitle: true,
-      // ),
+
       body: Center(
         child: Column(
           children: <Widget>[
@@ -63,7 +64,9 @@ class _LoginState extends State<Login> {
               height: 40,
             ),
             ElevatedButton.icon(
+              //onPressed: ()=> SystemNavigator.pop(),
               onPressed: () {
+
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Home(value.text)));
               },
