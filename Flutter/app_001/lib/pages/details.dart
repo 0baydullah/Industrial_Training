@@ -16,9 +16,9 @@ class _DetailsState extends State<Details> {
       body: Column(
         children: [
           Image.network("${widget.url}"),
-          Text("${widget.name}",style: TextStyle(
+          Text("${widget.name}",style:  TextStyle(
             color: Colors.red,
-            fontSize: 69,
+            fontSize: 169,
           ),
           ),
 
