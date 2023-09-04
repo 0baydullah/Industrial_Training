@@ -12,7 +12,7 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black12,
+      backgroundColor: Colors.pink,
       body: Column(
         children: [
           Image.network("${widget.url}"),
