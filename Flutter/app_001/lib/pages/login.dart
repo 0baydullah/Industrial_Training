@@ -83,6 +83,7 @@ class _LoginState extends State<Login> {
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.cyan[900],
+                shape: StadiumBorder(),
               ),
             ),
           ],
