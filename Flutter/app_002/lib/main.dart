@@ -15,7 +15,7 @@ class Appp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
+      // checking git remote
       debugShowCheckedModeBanner: false,
       // home: Scaffold(
       //   backgroundColor: Colors.red,
