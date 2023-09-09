@@ -10,11 +10,13 @@ void main() {
 }
 
 class Appp extends StatelessWidget {
-  const Appp({super.key});
+  Appp({super.key});
+  String a="",b="",c="",d="",e="",f="",g="";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // checking git remote
       debugShowCheckedModeBanner: false,
       // home: Scaffold(
       //   backgroundColor: Colors.red,
@@ -23,9 +25,9 @@ class Appp extends StatelessWidget {
       routes: {
         '/': (context) => SplashScreen(),
         '/login': (context) => Login(),
-        '/home': (context) => Home(),
+        '/home': (context) => Home(a,b),
         '/signup': (context) => Signup(),
-        '/home2': (context) => Home2(),
+        '/home2': (context) => Home2(c,d,e,f,g),
       },
     );
   }

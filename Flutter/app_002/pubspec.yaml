@@ -78,6 +78,12 @@ flutter:
     - family: Splash
       fonts:
         - asset: fonts/splash.ttf
+    - family: t2
+      fonts:
+        - asset: fonts/t2.ttf
+    - family: t3
+      fonts:
+        - asset: fonts/t3.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
