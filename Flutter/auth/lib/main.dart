@@ -1,6 +1,12 @@
+import 'conf.dart';
+import 'home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -12,9 +18,33 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
+  TextEditingController _name =TextEditingController();
+  TextEditingController _pass =TextEditingController();
+
+  @override
+  void dispose() {
+    _name.dispose();
+    _pass.dispose();
+    super.dispose();
+  }
+
+
+  // register()async{
+  //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  //   final  User? user = (await firebaseAuth.createUserWithEmailAndPassword(email: mail, password: name)).user;
+  //   if(user!=null){
+  //     Navigator.push(context,
+  //         MaterialPageRoute(
+  //             builder: (context) => Home() ),
+  //     );
+  //   }
+  // }
+
   // This widget is the root of your application.
-  var name;
-  var mail;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,11 +66,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   Spacer(),
                   TextFormField(
-                    onChanged: (value){
-                      setState(() {
-                        name=value;
-                      });
-                    },
+                    controller: _name,
                     decoration: InputDecoration(
                       labelText: "Name",
                       icon: Icon(
@@ -70,11 +96,7 @@ class _MyAppState extends State<MyApp> {
                     height: 15,
                   ),
                   TextFormField(
-                    onChanged: (value){
-                      setState(() {
-                        mail=value;
-                      });
-                    },
+                    controller: _pass,
                     validator: (value) {
                       if (value!.isEmpty ||
                           !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
@@ -115,7 +137,7 @@ class _MyAppState extends State<MyApp> {
                     height: 40,
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: _signUp,
                       child: Text("Sign Up"),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
@@ -131,5 +153,16 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+
+  void _signUp()async{
+    String namea = _name.text;
+    String passa = _pass.text;
+
+    User? user = await _auth.signUpWithEmailAndPassword(namea, passa);
+    if(User!=null){
+      print("user done");
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));
+    }
   }
 }
