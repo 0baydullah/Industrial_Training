@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'package:intro_screen_onboarding_flutter/introduction.dart';
-import 'package:intro_screen_onboarding_flutter/introscreenonboarding.dart';
+import 'package:flutter_onboarding_screen/OnbordingData.dart';
+import 'package:flutter_onboarding_screen/flutteronboardingscreens.dart';
 
 
 void main() {
@@ -23,52 +23,30 @@ class Onbording extends StatelessWidget {
   Onbording({super.key});
 
 
-  final List<Introduction> list = [
-    Introduction(
+  final List<OnbordingData> list = [
+    OnbordingData(
       title: 'Spider Man Logo',
-      subTitle: 'simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s when an unknown printer took a galley of type and scra',
-      imageUrl: 'assets/spiderman.png',
+      desc: 'simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s when an unknown printer took a galley of type and scra',
+      imagePath: 'assets/spiderman.png',
     ),
-    Introduction(
+    OnbordingData(
       title: 'Spider Man',
-      subTitle: 'simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scra',
-      imageUrl: 'assets/spidy.png',
+      desc: 'simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scra',
+      imagePath: 'assets/spidy.png',
     ),
-    Introduction(
-      title: 'Iron Man',
-      subTitle: 'simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scra',
-      imageUrl: 'assets/ironman.png',
-    ),
-    Introduction(
-      title: 'Hulk',
-      subTitle: 'simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scra',
-      imageUrl: 'assets/hulk.png',
-    ),
-    Introduction(
+
+    OnbordingData(
       title: 'Avengers',
-      subTitle: 'simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scra',
-      imageUrl: 'assets/avenger.png',
+      desc: 'simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scra',
+      imagePath: 'assets/avenger.png',
+      desc
     ),
 
   ];
 
   @override
   Widget build(BuildContext context) {
-    return IntroScreenOnboarding(
-      backgroudColor: const Color(0xFFf9f9f9),
-      foregroundColor: const Color(0xFFFFAA00),
-      introductionList: list,
-      onTapSkipButton: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const Home(),
-          )),
-      skipTextStyle: const TextStyle(
-        color: Colors.blueGrey,
-        fontSize: 18,
-      ),
+    return IntroScreen(list,MaterialPageRoute(builder: (context) => Home()),
     );
   }
 }
-
-
