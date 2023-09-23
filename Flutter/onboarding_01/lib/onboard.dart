@@ -45,7 +45,7 @@ class _OnbordingState extends State<Onbording> {
                       children: [
                         Image.asset(
                           contents[i].image,
-                          height: 300,
+                          height: 400,
                         ),
                         Text(
                           contents[i].title,
